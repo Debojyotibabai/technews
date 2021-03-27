@@ -1,0 +1,45 @@
+.news__card {
+  width: 40%;
+  margin: 50px 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.news__card > img {
+  width: 100%;
+  transition: 0.3s;
+}
+.news__card > .news__detail > h1 {
+  font-size: 1.5rem;
+  margin: 20px 0 25px;
+  font-family: "Playfair Display", serif;
+}
+
+/* screen size 768px */
+@media only screen and (max-width: 768px) {
+  .news__card {
+    width: 45%;
+    margin: 30px 0;
+  }
+  .news__card > .news__detail > h1 {
+    font-size: 1.3rem;
+  }
+}
+
+/* screen size 480px */
+@media only screen and (max-width: 480px) {
+  .news__card {
+    width: 80%;
+    margin: 35px 0;
+  }
+}
+
+/* screen size 360px */
+@media only screen and (max-width: 360px) {
+  .news__card {
+    width: 90%;
+    margin: 25px 0;
+  }
+  .news__card > .news__detail > h1 {
+    font-size: 1.1rem;
+  }
+}
