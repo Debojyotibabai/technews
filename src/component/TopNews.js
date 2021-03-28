@@ -68,7 +68,7 @@ const TopNews = () => {
   const allSidebarNews = sidebarNewsDetail.map((eachNews, eachNewsIndex) => {
     return (
       <SidebarNews
-        img={eachNews.multimedia[0].url}
+        img={eachNews.multimedia[3].url}
         heading={eachNews.title}
         key={eachNewsIndex}
       />
