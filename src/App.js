@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 // component
 import Header from "./component/Header";
-import TopNews from "./component/TopNews";
+import SportsNews from "./component/SportsNews";
 import TechnologyNews from "./component/TechnologyNews";
 import BusinessNews from "./component/BussinessNews";
 
@@ -18,7 +18,7 @@ const App = () => {
 
       {/* paths */}
       <Switch>
-        <Route exact path="/" component={TopNews} />
+        <Route exact path="/" component={SportsNews} />
         <Route path="/technology" component={TechnologyNews} />
         <Route path="/bussiness" component={BusinessNews} />
         <Redirect to="/" />

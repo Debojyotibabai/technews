@@ -32,7 +32,7 @@ const Header = (props) => {
               setIsOpen(!isOpen);
             }}
           >
-            Top News
+            Sports
           </NavLink>
         </li>
         <li className="nav__item">

@@ -10,18 +10,18 @@ import Footer from "./Footer";
 import FullNews from "./FullNews";
 
 // css
-import "../css/TopNews.css";
+import "../css/SportsNews.css";
 import "../css/App.css";
 
 // image
-import topBannerImg from "../image/topBanner.svg";
+import sportsBannerImg from "../image/sportsBanner.svg";
 
 // others
 import axios from "axios";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
-const TopNews = () => {
+const SportsNews = () => {
   // sidebar news detail
   const [sidebarNewsDetail, setSidebarNewsDetail] = useState([]);
 
@@ -36,8 +36,8 @@ const TopNews = () => {
   // carousel news detail
   const [carouselNewsDetail, setCarouselNewsDetail] = useState([]);
 
-  // top news detail
-  const [topNews, setTopNews] = useState([]);
+  // sports news detail
+  const [sportsNews, setSportsNews] = useState([]);
 
   // full news is open or not value
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +95,7 @@ const TopNews = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.nytimes.com/svc/topstories/v2/us.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
+        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
       )
       .then((response) => {
         const carouselData = response.data.results.slice(0, 5);
@@ -115,14 +115,14 @@ const TopNews = () => {
     );
   });
 
-  // top news data fetch
+  // sports news data fetch
   useEffect(() => {
     axios
       .get(
-        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
+        "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
       )
       .then((response) => {
-        setTopNews(response.data.results);
+        setSportsNews(response.data.results);
       });
   }, []);
 
@@ -130,7 +130,7 @@ const TopNews = () => {
   const fullNewsHandler = (index) => {
     axios
       .get(
-        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
+        "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
       )
       .then((response) => {
         const fullNewsData = response.data.results.slice(index, index + 1);
@@ -140,7 +140,7 @@ const TopNews = () => {
   };
 
   // top news card making
-  const allTopNews = topNews.map((eachNews, eachNewsIndex) => {
+  const allTopNews = sportsNews.map((eachNews, eachNewsIndex) => {
     return (
       <Card
         fullNews={fullNewsHandler.bind(this, eachNewsIndex)}
@@ -154,10 +154,10 @@ const TopNews = () => {
   return (
     <>
       <div className="section__width">
-        {/* top banner */}
+        {/* sports banner */}
         <Banner
-          bannerHeading="Welcome to TechNew's Top section."
-          bannerImg={topBannerImg}
+          bannerHeading="Welcome to TechNew's Sports section."
+          bannerImg={sportsBannerImg}
         />
         <div className="sidebar__weather__section">
           {/* sidebar news */}
@@ -175,14 +175,14 @@ const TopNews = () => {
           />
         </div>
 
-        {/* top news section */}
+        {/* sports news section */}
         <div className="news__section">
-          <h1 className="news__section__heading">Today's Top News</h1>
+          <h1 className="news__section__heading">Today's Sports News</h1>
 
           {/* carousel */}
           <Splide className="carousel">{allCarouselNews}</Splide>
 
-          {/* top news */}
+          {/* sports news */}
           <div className="main__news__section">{allTopNews}</div>
         </div>
 
@@ -212,4 +212,4 @@ const TopNews = () => {
   );
 };
 
-export default TopNews;
+export default SportsNews;
