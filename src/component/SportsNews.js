@@ -60,6 +60,7 @@ const SportsNews = () => {
         "https://api.nytimes.com/svc/topstories/v2/insider.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
       )
       .then((response) => {
+        console.log("response", response);
         setSidebarNewsDetail(response.data.results.slice(0, 10));
       });
   }, []);
@@ -68,7 +69,7 @@ const SportsNews = () => {
   const allSidebarNews = sidebarNewsDetail.map((eachNews, eachNewsIndex) => {
     return (
       <SidebarNews
-        img={eachNews.multimedia[3].url}
+        img={eachNews?.multimedia[0]?.url}
         heading={eachNews.title}
         key={eachNewsIndex}
       />

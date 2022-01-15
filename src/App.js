@@ -19,7 +19,6 @@ const App = () => {
       {/* paths */}
       <Switch>
         <Route exact path="/" component={SportsNews} />
-        <Route path="/technology" component={TechnologyNews} />
         <Route path="/bussiness" component={BusinessNews} />
         <Redirect to="/" />
       </Switch>

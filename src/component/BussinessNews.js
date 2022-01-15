@@ -63,7 +63,7 @@ const BusinessNews = () => {
     return (
       <Card
         fullNews={fullNewsHandler.bind(this, eachNewsIndex)}
-        img={eachNews.multimedia[0].url}
+        img={eachNews?.multimedia[0]?.url}
         heading={eachNews.title}
         key={eachNewsIndex}
       />
