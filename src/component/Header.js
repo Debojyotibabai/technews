@@ -37,6 +37,19 @@ const Header = (props) => {
         </li>
         <li className="nav__item">
           <NavLink
+            exact
+            activeClassName="nav__active"
+            className="nav__link"
+            to="/technology"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            Technology
+          </NavLink>
+        </li>
+        <li className="nav__item">
+          <NavLink
             activeClassName="nav__active"
             className="nav__link"
             to="/bussiness"

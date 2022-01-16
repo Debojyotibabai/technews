@@ -41,7 +41,7 @@ const TechnologyNews = () => {
         "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=317ppBXJwOyxCLAWOCvzKUzivzqRnqaE"
       )
       .then((response) => {
-        console.log("response", response);
+        console.log("response", response.data.results);
         setTechnologyNews(response.data.results);
       });
   }, []);
@@ -64,7 +64,7 @@ const TechnologyNews = () => {
     return (
       <Card
         fullNews={fullNewsHandler.bind(this, eachNewsIndex)}
-        img={eachNews?.multimedia[0]?.url}
+        img={eachNews?.multimedia[0].url}
         heading={eachNews.title}
         key={eachNewsIndex}
       />
@@ -109,7 +109,6 @@ const TechnologyNews = () => {
       </div>
 
       {/* footer */}
-      {/* <Route path="/technology" component={TechnologyNews} /> */}
       <Footer />
     </>
   );
